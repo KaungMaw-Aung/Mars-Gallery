@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/mi_all"
+        android:title="ALL" />
+    <item
+        android:id="@+id/mi_fhaz"
+        android:title="Front Hazard Avoidance" />
+    <item
+        android:id="@+id/mi_mast"
+        android:title="Mast Camera" />
+    <item
+        android:id="@+id/mi_nav"
+        android:title="Navigation Camera" />
+</menu>

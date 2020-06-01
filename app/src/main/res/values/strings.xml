@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mars Gallery</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="photos_from_mars">photos from mars</string>
+</resources>

@@ -4,4 +4,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="photos_from_mars">photos from mars</string>
+    <string name="property_detail">This photo was taken from %1$s rover\'s %2$s on %3$s.</string>
 </resources>

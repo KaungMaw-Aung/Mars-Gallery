@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/mi_all"
-        android:title="ALL" />
+        android:title="All cameras" />
     <item
         android:id="@+id/mi_fhaz"
         android:title="Front Hazard Avoidance" />

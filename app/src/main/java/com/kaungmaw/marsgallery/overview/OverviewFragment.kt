@@ -5,6 +5,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.kaungmaw.marsgallery.R
 import com.kaungmaw.marsgallery.databinding.FragmentOverviewBinding
 import com.kaungmaw.marsgallery.network.CameraFilter
@@ -23,7 +24,16 @@ class OverviewFragment : Fragment() {
         val binding = FragmentOverviewBinding.inflate(inflater, container, false)
         binding.setLifecycleOwner(this)
 
-        binding.rvGalleryList.adapter = OverviewAdapter()
+        binding.rvGalleryList.adapter = OverviewAdapter(OverviewAdapter.OnItemClickListener {
+            viewModel.executeDetailNavigation(it)
+        })
+
+        viewModel.navigateToDetail.observe( viewLifecycleOwner , Observer {
+            it?.let {
+                findNavController().navigate(OverviewFragmentDirections.actionOverviewFragmentToDetailFragment(it))
+                viewModel.doneExecuteDetailNavigation()
+            }
+        })
 
         binding.viewModel = viewModel
 

@@ -51,4 +51,17 @@ class OverviewViewModel: ViewModel() {
     private val _status = MutableLiveData<NetworkStatus>()
     val status: LiveData<NetworkStatus>
         get() = _status
+
+    //event handler
+    private val _navigateToDetail = MutableLiveData<MarsGalleryPropertyPhotos>()
+    val navigateToDetail : LiveData<MarsGalleryPropertyPhotos>
+        get() = _navigateToDetail
+
+    fun executeDetailNavigation(property : MarsGalleryPropertyPhotos){
+        _navigateToDetail.value = property
+    }
+
+    fun doneExecuteDetailNavigation(){
+        _navigateToDetail.value = null
+    }
 }

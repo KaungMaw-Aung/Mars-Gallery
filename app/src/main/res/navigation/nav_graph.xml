@@ -9,5 +9,18 @@
         android:id="@+id/overviewFragment"
         android:name="com.kaungmaw.marsgallery.overview.OverviewFragment"
         android:label="OverviewFragment"
-        tools:layout="@layout/fragment_overview"/>
+        tools:layout="@layout/fragment_overview">
+        <action
+            android:id="@+id/action_overviewFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kaungmaw.marsgallery.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="selectedProperty"
+            app:argType="com.kaungmaw.marsgallery.network.MarsGalleryPropertyPhotos" />
+    </fragment>
 </navigation>

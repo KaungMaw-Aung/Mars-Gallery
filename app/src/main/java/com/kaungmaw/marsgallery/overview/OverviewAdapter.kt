@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kaungmaw.marsgallery.databinding.GalleryGridHolderBinding
 import com.kaungmaw.marsgallery.network.MarsGalleryPropertyPhotos
 
-class OverviewAdapter : ListAdapter<MarsGalleryPropertyPhotos,OverviewAdapter.OverviewViewHolder>(DiffCallback) {
+class OverviewAdapter(private val onItemClickListener: OnItemClickListener) : ListAdapter<MarsGalleryPropertyPhotos,OverviewAdapter.OverviewViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OverviewViewHolder {
         return OverviewViewHolder(GalleryGridHolderBinding.inflate(LayoutInflater.from(parent.context)))
@@ -16,6 +16,9 @@ class OverviewAdapter : ListAdapter<MarsGalleryPropertyPhotos,OverviewAdapter.Ov
 
     override fun onBindViewHolder(holder: OverviewViewHolder, position: Int) {
         val item = getItem(position)
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onClick(item)
+        }
         holder.bind(item)
     }
 
@@ -35,6 +38,11 @@ class OverviewAdapter : ListAdapter<MarsGalleryPropertyPhotos,OverviewAdapter.Ov
             return oldItem.id == newItem.id
         }
 
+    }
+
+    //item click
+    class OnItemClickListener(val clickListener: (photoProperty : MarsGalleryPropertyPhotos)-> Unit){
+        fun onClick(photoProperty: MarsGalleryPropertyPhotos) = clickListener(photoProperty)
     }
 }
 
